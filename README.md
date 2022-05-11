@@ -1,5 +1,5 @@
 # public-test
 lets go
 :)))
-lgtm
+lgtm!
 A new PR
