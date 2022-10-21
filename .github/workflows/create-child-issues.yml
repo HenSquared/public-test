@@ -8,7 +8,7 @@ jobs:
     name: Create child issues
     runs-on: ubuntu-latest
     steps:
-      - uses: hensquared/create-child-issues@v1
+      - uses: hensquared/create-child-issues@e15ba17e457416269234a5d27995827a19ce2934
         # Important to prevent over generating
         if: github.event.label.name == 'make-client'
         with:
@@ -20,7 +20,7 @@ jobs:
       - uses: jakejarvis/wait-action@master
         with:
           time: '5s'
-      - uses: hensquared/create-child-issues@v1
+      - uses: hensquared/create-child-issues@e15ba17e457416269234a5d27995827a19ce2934
         # Important to prevent over generating
         if: github.event.label.name == 'make-api'
         with:
