@@ -12,7 +12,7 @@ jobs:
         # Important to prevent over generating
         if: github.event.label.name == 'make-client'
         with:
-          repos: 'github/mobile-android,github/mobile-ios'
+          repos: 'hensquared/public-chi'
           # TODO use @hubot token or something
           github_token: ${{ secrets.PAT_TOKEN }}
           child-prefix: '[subtask] '
