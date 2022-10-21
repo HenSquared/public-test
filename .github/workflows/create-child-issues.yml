@@ -1,0 +1,28 @@
+name: Create child issues
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    name: Create child issues
+    runs-on: ubuntu-latest
+    steps:
+      - uses: rnystrom/create-child-issues@master
+        # Important to prevent over generating
+        if: github.event.label.name == 'make-client'
+        with:
+          repos: 'github/mobile-android,github/mobile-ios'
+          # TODO use @hubot token or something
+          github_token: ${{ secrets.PAT_TOKEN }}
+          child-prefix: '[subtask] '
+      # Rrevent race condition from adding multiple "make" labels at once
+      - uses: jakejarvis/wait-action@master
+        with:
+          time: '5s'
+      - uses: rnystrom/create-child-issues@master
+        # Important to prevent over generating
+        if: github.event.label.name == 'make-api'
+        with:
+          repos: 'github/mobile-api'
+          child-prefix: '[subtask] '
