@@ -1,0 +1,28 @@
+name: Create child issues
+on:
+  issues:
+    types: [labeled]
+
+jobs:
+  build:
+    name: Create child issues
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hensquared/create-child-issues@e15ba17e457416269234a5d27995827a19ce2934
+        # Important to prevent over generating
+        if: github.event.label.name == 'make-client'
+        with:
+          repos: 'hensquared/public-chi'
+          # TODO use @hubot token or something
+          github_token: ${{ secrets.PAT }}
+          child-prefix: '[subtask] '
+      # Rrevent race condition from adding multiple "make" labels at once
+      - uses: jakejarvis/wait-action@master
+        with:
+          time: '5s'
+      - uses: hensquared/create-child-issues@e15ba17e457416269234a5d27995827a19ce2934
+        # Important to prevent over generating
+        if: github.event.label.name == 'make-api'
+        with:
+          repos: 'hensquared/public-chi'
+          child-prefix: '[subtask] '
