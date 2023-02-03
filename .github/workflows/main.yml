@@ -15,4 +15,4 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: exit 1
+      - run: exit 0
