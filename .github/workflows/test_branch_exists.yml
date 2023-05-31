@@ -21,11 +21,10 @@ jobs:
       # Runs a single command using the runners shell
       - name: Check branch exists
         run: |
-            UPDATE_SNAPSHOT_BRANCH_NAME="hj/test_branch"
-            if [ `git branch --list $UPDATE_SNAPSHOT_BRANCH_NAME`]; then
-              echo 'branch exists'
-              exit 0
-            else
-              echo 'branch does not exist'
-              exit 1
-            fi
+        UPDATE_SNAPSHOT_BRANCH_NAME="hj/test_branch"
+        local existed_in_remote=$(git ls-remote --heads origin $UPDATE_SNAPSHOT_BRANCH_NAME)
+          if [[ -z ${existed_in_remote} ]]; then
+              echo 0
+          else
+              echo 1
+          fi
