@@ -21,7 +21,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Check branch exists
         run: |
-            UPDATE_SNAPSHOT_BRANCH_NAME="bot/${{ github.ref_name }}/update-snapshots"
+            UPDATE_SNAPSHOT_BRANCH_NAME="hj/test_branch"
             if [ `git branch --list $UPDATE_SNAPSHOT_BRANCH_NAME`]; then
               echo 'branch exists'
               exit 0
