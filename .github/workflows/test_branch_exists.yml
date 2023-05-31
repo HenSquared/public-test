@@ -24,7 +24,7 @@ jobs:
       - name: Check branch exists
         run: |
           UPDATE_SNAPSHOT_BRANCH_NAME="hj/test_branch"
-          local existed_in_remote=$(git ls-remote --heads origin $UPDATE_SNAPSHOT_BRANCH_NAME)
+          existed_in_remote=$(git ls-remote --heads origin $UPDATE_SNAPSHOT_BRANCH_NAME)
             if [[ -z ${existed_in_remote} ]]; then
               echo 0
             else
