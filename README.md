@@ -1,6 +1,6 @@
 test
 
-yoooooothajsjsjsjsjj<details>
+noty
   <summary>Click me</summary>
   
   ### Heading
