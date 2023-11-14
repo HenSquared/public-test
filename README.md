@@ -1,5 +1,5 @@
 
-
+https://github.com/espressif/arduino-esp32/blob/master/boards.txt#L10352C51-L10352C51
 chachachabges 
 changes some more changes 
 
