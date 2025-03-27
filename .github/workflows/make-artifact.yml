@@ -1,0 +1,23 @@
+name: Write to Text File and Upload Artifact
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  write-and-upload:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Write to text file
+      run: echo "Hello, world! This is a new line of text." > output.txt
+
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: output-file
+        path: output.txt
