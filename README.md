@@ -7,6 +7,7 @@ some changes
 - [] 1
 - [] 2
 - [ ] x
+- [x] y 
 
 test yoooooothajsjsjsjsjj<details>
   <summary>Click me</summary>
