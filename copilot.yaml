@@ -1,3 +1,4 @@
 # Exclude all files from GitHub Copilot
 paths:
-  - "**"
+  ignore:
+    - "**"
