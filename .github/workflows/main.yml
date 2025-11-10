@@ -15,4 +15,7 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: exit 0
+      - name: Run tests
+        run: |
+          chmod +x run_tests.sh
+          ./run_tests.sh
