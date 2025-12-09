@@ -15,7 +15,7 @@ Where collaboration's seeds we sow.
 From issue threads to pull requests,
 Together we create what's best.
 
-So here's my verse, both simple, true,
+So here's my verse, both simple and true,
 A poem written just for you.
 In this repository, now it stays,
 A testament to coding days.
