@@ -1,0 +1,3 @@
+Code flows like water,
+Tests guard the path we create,
+Pull requests merge clean.
