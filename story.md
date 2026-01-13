@@ -40,7 +40,6 @@ Behind a false panel, she found a workshop within the workshop. Hundreds of cloc
 
 On the winter solstice, when the night was longest and the stars burned brightest, Mr. Temporis revealed the final secret. He was not merely a clockmaker—he was a Guardian of Time, one of an ancient order tasked with protecting the world's most precious moments.
 
-"But I'm growing old," he confessed, "and every Guardian must choose a successor. The music you heard that morning—only those with the gift can hear it. You have the rare ability to not just measure time, but to understand it, to feel its weight and its worth."
 
 He placed his hand on the silent grandfather clock. "This is my life's work, and my greatest failure. It contains a moment I tried to save but couldn't. Perhaps, with your help, we can finally set it right."
 
@@ -50,8 +49,6 @@ The sound was not of bells or gongs, but of a woman's voice, laughing and callin
 
 Tears streamed down Mr. Temporis's weathered cheeks. "My mother," he whispered. "I was too young to remember her voice. She died when I was three. But now... now I'll never forget again."
 
-## Epilogue: The New Guardian
-
 Years later, when Elena had silver streaks in her dark hair and her own apprentice working at the bench beside her, she would think back to that winter morning. She learned that time wasn't just something to be measured or saved—it was something to be cherished, moment by moment, tick by tick.
 
 The shop on the narrow cobblestone alley still stood, and its sign still bore a clock with no hands. Because, as Elena now understood, some things shouldn't be measured at all—they should simply be felt, remembered, and passed on to those who have the gift to hear the music.
@@ -59,5 +56,7 @@ The shop on the narrow cobblestone alley still stood, and its sign still bore a 
 And somewhere in the hidden workshop, hundreds of silent clocks waited patiently for their moments to be remembered, their stories to be told, and their time to begin again.
 
 ---
+
+asdasasdasdasd
 
 *The End*
