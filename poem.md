@@ -11,7 +11,7 @@ It measures the laughter, the tears, the song,
 The brief hello, the farewell long.
 
 Springs coiled tight with hope and dreams,
-Nothing is quite as it seems,
+Hold more than mechanical schemes,
 For time is more than numbers on a face,
 It's love and loss, and saving grace.
 
