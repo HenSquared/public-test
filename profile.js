@@ -44,10 +44,15 @@ class UserProfile {
     }
 
     loadProfile() {
-        const savedProfile = localStorage.getItem('userProfile');
-        const profile = savedProfile ? JSON.parse(savedProfile) : this.defaultProfile;
-        
-        this.displayProfile(profile);
+        try {
+            const savedProfile = localStorage.getItem('userProfile');
+            const profile = savedProfile ? JSON.parse(savedProfile) : this.defaultProfile;
+            
+            this.displayProfile(profile);
+        } catch (error) {
+            console.error('Error loading profile:', error);
+            this.displayProfile(this.defaultProfile);
+        }
     }
 
     displayProfile(profile) {
@@ -56,25 +61,40 @@ class UserProfile {
         this.bioDisplay.textContent = profile.bio;
         this.locationDisplay.textContent = profile.location;
         this.avatarDisplay.src = profile.avatar;
+        this.avatarDisplay.alt = `${profile.name}'s profile picture`;
+        
+        // Handle image loading errors
+        this.avatarDisplay.onerror = () => {
+            this.avatarDisplay.src = this.defaultProfile.avatar;
+        };
     }
 
     showEditMode() {
-        const savedProfile = localStorage.getItem('userProfile');
-        const profile = savedProfile ? JSON.parse(savedProfile) : this.defaultProfile;
-        
-        this.nameInput.value = profile.name;
-        this.emailInput.value = profile.email;
-        this.bioInput.value = profile.bio;
-        this.locationInput.value = profile.location;
-        this.avatarInput.value = profile.avatar;
-        
-        this.viewMode.style.display = 'none';
-        this.editMode.style.display = 'block';
+        try {
+            const savedProfile = localStorage.getItem('userProfile');
+            const profile = savedProfile ? JSON.parse(savedProfile) : this.defaultProfile;
+            
+            this.nameInput.value = profile.name;
+            this.emailInput.value = profile.email;
+            this.bioInput.value = profile.bio;
+            this.locationInput.value = profile.location;
+            this.avatarInput.value = profile.avatar;
+            
+            this.viewMode.style.display = 'none';
+            this.viewMode.setAttribute('aria-hidden', 'true');
+            this.editMode.style.display = 'block';
+            this.editMode.setAttribute('aria-hidden', 'false');
+        } catch (error) {
+            console.error('Error loading profile for editing:', error);
+            this.showErrorMessage('Failed to load profile for editing.');
+        }
     }
 
     showViewMode() {
         this.viewMode.style.display = 'block';
+        this.viewMode.setAttribute('aria-hidden', 'false');
         this.editMode.style.display = 'none';
+        this.editMode.setAttribute('aria-hidden', 'true');
     }
 
     saveProfile(e) {
@@ -88,20 +108,32 @@ class UserProfile {
             avatar: this.avatarInput.value.trim() || this.defaultProfile.avatar
         };
 
+        // Validate name
+        if (!profile.name) {
+            this.showErrorMessage('Name is required.');
+            return;
+        }
+
         // Validate email
         if (!this.isValidEmail(profile.email)) {
-            alert('Please enter a valid email address.');
+            this.showErrorMessage('Please enter a valid email address.');
             return;
         }
 
         // Validate avatar URL
-        if (profile.avatar && !this.isValidUrl(profile.avatar)) {
-            alert('Please enter a valid URL for the avatar.');
+        if (this.avatarInput.value.trim() && !this.isValidUrl(profile.avatar)) {
+            this.showErrorMessage('Please enter a valid URL for the avatar.');
             return;
         }
 
         // Save to localStorage
-        localStorage.setItem('userProfile', JSON.stringify(profile));
+        try {
+            localStorage.setItem('userProfile', JSON.stringify(profile));
+        } catch (error) {
+            console.error('Error saving profile:', error);
+            this.showErrorMessage('Failed to save profile. Please try again.');
+            return;
+        }
         
         // Update display
         this.displayProfile(profile);
@@ -112,7 +144,7 @@ class UserProfile {
     }
 
     isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
         return emailRegex.test(email);
     }
 
@@ -126,13 +158,21 @@ class UserProfile {
     }
 
     showSuccessMessage() {
+        this.showMessage('Profile updated successfully!', '#4caf50');
+    }
+
+    showErrorMessage(text) {
+        this.showMessage(text, '#f44336');
+    }
+
+    showMessage(text, backgroundColor) {
         const message = document.createElement('div');
-        message.textContent = 'Profile updated successfully!';
+        message.textContent = text;
         message.style.cssText = `
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #4caf50;
+            background: ${backgroundColor};
             color: white;
             padding: 15px 25px;
             border-radius: 8px;
@@ -149,33 +189,6 @@ class UserProfile {
         }, 3000);
     }
 }
-
-// Add CSS animations
-const style = document.createElement('style');
-style.textContent = `
-    @keyframes slideIn {
-        from {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(400px);
-            opacity: 0;
-        }
-    }
-`;
-document.head.appendChild(style);
 
 // Initialize the profile manager when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

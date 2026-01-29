@@ -26,7 +26,7 @@
                 <button id="edit-btn" class="btn btn-primary">Edit Profile</button>
             </div>
 
-            <div id="edit-mode" style="display: none;">
+            <div id="edit-mode" style="display: none;" aria-hidden="true">
                 <form id="profile-form">
                     <div class="form-group">
                         <label for="name-input">Name:</label>
@@ -37,11 +37,11 @@
                         <input type="email" id="email-input" required>
                     </div>
                     <div class="form-group">
-                        <label for="bio-input">Bio:</label>
+                        <label for="bio-input">Bio (optional):</label>
                         <textarea id="bio-input" rows="4"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="location-input">Location:</label>
+                        <label for="location-input">Location (optional):</label>
                         <input type="text" id="location-input">
                     </div>
                     <div class="form-group">
