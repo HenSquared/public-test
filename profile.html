@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile-card">
+            <h1>User Profile</h1>
+            
+            <div id="view-mode">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img id="avatar-display" src="https://via.placeholder.com/150" alt="Profile Avatar">
+                    </div>
+                    <div class="profile-details">
+                        <h2 id="name-display">John Doe</h2>
+                        <p><strong>Email:</strong> <span id="email-display">john.doe@example.com</span></p>
+                        <p><strong>Bio:</strong> <span id="bio-display">Software developer passionate about coding.</span></p>
+                        <p><strong>Location:</strong> <span id="location-display">San Francisco, CA</span></p>
+                    </div>
+                </div>
+                <button id="edit-btn" class="btn btn-primary">Edit Profile</button>
+            </div>
+
+            <div id="edit-mode" style="display: none;">
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="name-input">Name:</label>
+                        <input type="text" id="name-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email-input">Email:</label>
+                        <input type="email" id="email-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio-input">Bio:</label>
+                        <textarea id="bio-input" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="location-input">Location:</label>
+                        <input type="text" id="location-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="avatar-input">Avatar URL:</label>
+                        <input type="url" id="avatar-input" placeholder="https://example.com/avatar.jpg">
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
