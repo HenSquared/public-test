@@ -53,6 +53,21 @@ class TestGreeting(unittest.TestCase):
         """Test that non-list input raises TypeError."""
         with self.assertRaises(TypeError):
             greet_multiple("not a list")
+    
+    def test_greet_multiple_with_empty_string(self):
+        """Test that list with empty string raises ValueError."""
+        with self.assertRaises(ValueError):
+            greet_multiple(["Alice", "", "Bob"])
+    
+    def test_greet_multiple_with_none(self):
+        """Test that list with None raises ValueError."""
+        with self.assertRaises(ValueError):
+            greet_multiple(["Alice", None, "Bob"])
+    
+    def test_greet_multiple_with_invalid_type_in_list(self):
+        """Test that list with non-string type raises ValueError."""
+        with self.assertRaises(ValueError):
+            greet_multiple(["Alice", 123, "Bob"])
 
 
 if __name__ == "__main__":

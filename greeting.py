@@ -14,6 +14,9 @@ def greet(name):
         
     Returns:
         str: A greeting message
+        
+    Raises:
+        ValueError: If name is not a non-empty string
     """
     if not name or not isinstance(name, str):
         raise ValueError("Name must be a non-empty string")
@@ -30,9 +33,18 @@ def greet_multiple(names):
         
     Returns:
         list: A list of greeting messages
+        
+    Raises:
+        TypeError: If names is not a list
+        ValueError: If any name in the list is not a non-empty string
     """
     if not isinstance(names, list):
         raise TypeError("Names must be provided as a list")
+    
+    # Validate all names before processing
+    for name in names:
+        if not name or not isinstance(name, str):
+            raise ValueError("All names must be non-empty strings")
     
     return [greet(name) for name in names]
 
