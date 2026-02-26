@@ -32,3 +32,24 @@ a test
 </details>
 asdlfkjasl dkfjaslkd fjsad fasd f
 dfdfdf
+
+## Hello World Samples
+
+This repository includes simple "Hello World" programs in multiple programming languages:
+
+### Python
+```bash
+python3 hello_world.py
+```
+
+### JavaScript (Node.js)
+```bash
+node hello_world.js
+```
+
+### Bash
+```bash
+bash hello_world.sh
+```
+
+All programs output: `Hello, World!`
