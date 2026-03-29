@@ -1,0 +1,3 @@
+Code flows through branches
+Tests reveal hidden bugs now
+Commits merge as one
