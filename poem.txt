@@ -1,0 +1,4 @@
+In code we write, with purpose clear,
+Each line we craft with thoughtful care,
+Through tests and reviews we persevere,
+To build software beyond compare.
